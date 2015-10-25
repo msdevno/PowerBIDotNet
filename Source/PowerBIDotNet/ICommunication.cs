@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public interface ICommunication
     {

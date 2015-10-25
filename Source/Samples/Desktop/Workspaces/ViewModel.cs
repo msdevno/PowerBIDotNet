@@ -1,4 +1,4 @@
-﻿using Infrastructure.PowerBI;
+﻿using PowerBIDotNet;
 
 namespace Desktop.Workspaces
 {

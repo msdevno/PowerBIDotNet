@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace PowerBIDotNet

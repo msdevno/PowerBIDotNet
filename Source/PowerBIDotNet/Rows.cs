@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class Rows : IRows
     {

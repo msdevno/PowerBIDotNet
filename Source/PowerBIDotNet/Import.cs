@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.PowerBI
+﻿namespace PowerBIDotNet
 {
     public class Import
     {

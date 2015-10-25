@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class DesktopAuthentication : IAuthentication
     {

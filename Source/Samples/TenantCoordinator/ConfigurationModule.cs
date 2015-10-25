@@ -1,4 +1,4 @@
-﻿using Infrastructure.PowerBI;
+﻿using PowerBIDotNet;
 using Ninject.Modules;
 
 namespace TenantCoordinator

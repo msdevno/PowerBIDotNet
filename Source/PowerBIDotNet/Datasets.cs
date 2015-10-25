@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class Datasets : IDatasets
     {

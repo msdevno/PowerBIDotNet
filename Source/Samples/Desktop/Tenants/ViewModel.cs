@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Bifrost.Extensions;
 using Events;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 
 namespace Desktop.Tenants
 {

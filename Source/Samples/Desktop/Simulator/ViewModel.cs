@@ -2,7 +2,7 @@
 using System.Text;
 using Bifrost.Serialization;
 using Events;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 using Microsoft.ServiceBus.Messaging;
 
 namespace Desktop.Simulator

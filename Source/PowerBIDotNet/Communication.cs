@@ -3,7 +3,7 @@ using System.Net;
 using System.Text;
 using Bifrost.Serialization;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
 
     public class Communication : ICommunication

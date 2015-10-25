@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public interface IWorkspace
     {

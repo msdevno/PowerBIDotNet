@@ -1,6 +1,6 @@
 ﻿using System.Collections.Specialized;
 using System.Web;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 using Microsoft.AspNet.SignalR;
 
 namespace Web.Tenants

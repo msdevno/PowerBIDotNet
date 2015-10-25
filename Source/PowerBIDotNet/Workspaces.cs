@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class Workspaces : IWorkspaces
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web;
 using Bifrost.Configuration;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 
 namespace Web
 {

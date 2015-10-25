@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class Tables : ITables
     {

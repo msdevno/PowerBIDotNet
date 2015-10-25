@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bifrost.Serialization;
 using Events;
-using Infrastructure.PowerBI;
+using PowerBIDotNet;
 using Microsoft.ServiceBus.Messaging;
 
 namespace TenantCoordinator

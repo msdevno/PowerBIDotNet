@@ -6,7 +6,7 @@ using Bifrost.Concepts;
 using Microsoft.WindowsAzure.Storage;
 using System.Collections.Generic;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class ConfigurationForTenants : IConfigurationForTenants
     {

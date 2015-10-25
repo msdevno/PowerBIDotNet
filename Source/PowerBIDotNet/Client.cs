@@ -1,6 +1,6 @@
 ﻿using Bifrost.Concepts;
 
-namespace Infrastructure.PowerBI
+namespace PowerBIDotNet
 {
     public class Client : ConceptAs<string>
     {
