@@ -1,21 +1,17 @@
 ﻿using System.IO;
 using System.Net;
 using System.Text;
-using Bifrost.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace PowerBIDotNet
 {
 
     public class Communication : ICommunication
     {
-        static SerializationOptions SerializationOptions = new SerializationOptions { UseCamelCase = true };
+        static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         const string baseUrl = "https://api.powerbi.com/v1.0/myorg/";
-        ISerializer _serializer;
 
-        public Communication(ISerializer serializer)
-        {
-            _serializer = serializer;
-        }
 
         public T Get<T>(Token token, string action)
         {
@@ -28,7 +24,8 @@ namespace PowerBIDotNet
             string action,
             TInput message)
         {
-            var json = _serializer.ToJson(message, SerializationOptions);
+            var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
+
             var request = CreateRequest(token, action, "PUT");
             Post(request, json);
         }
@@ -38,7 +35,7 @@ namespace PowerBIDotNet
             string action,
             TInput message)
         {
-            var json = _serializer.ToJson(message, SerializationOptions);
+            var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
             var request = CreateRequest(token, action, "POST");
             Post(request, json);
         }
@@ -49,7 +46,7 @@ namespace PowerBIDotNet
             string action, 
             TInput message)
         {
-            var json = _serializer.ToJson(message, SerializationOptions);
+            var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
             var request = CreateRequest(token, action, "POST");
 
             return Post<TOutput>(request, json);
@@ -80,7 +77,7 @@ namespace PowerBIDotNet
                 }
             }
 
-            return _serializer.FromJson<T>(json, SerializationOptions);
+            return JsonConvert.DeserializeObject<T>(json, jsonSerializerSettings);
         }
 
         void Post(HttpWebRequest request, string json)
