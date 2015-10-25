@@ -55,7 +55,7 @@ namespace PowerBIDotNet
         HttpWebRequest CreateRequest(Token token, string action, string method)
         {
             var url = $"{baseUrl}{action}";
-            var request = System.Net.WebRequest.Create(url) as HttpWebRequest;
+            var request = WebRequest.Create(url) as HttpWebRequest;
             request.KeepAlive = true;
             request.Method = method;
             request.ContentLength = 0;
