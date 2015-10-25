@@ -5,12 +5,12 @@ namespace Infrastructure.PowerBI
 {
     public class Tables : ITables
     {
-        TenantConfiguration _tenantConfiguration;
+        Token _token;
         ICommunication _communication;
 
-        public Tables(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Tables(Token token, ICommunication communication)
         {
-            _tenantConfiguration = tenantConfiguration;
+            _token = token;
             _communication = communication;
         }
         public IEnumerable<Table> GetFor(Group group, Dataset dataset)
@@ -21,7 +21,7 @@ namespace Infrastructure.PowerBI
         public IEnumerable<Table> GetFor(Dataset dataset)
         {
             try {
-                var tables = _communication.Get<TablesWrapper>(_tenantConfiguration, $"datasets/{dataset.Id}/tables");
+                var tables = _communication.Get<TablesWrapper>(_token, $"datasets/{dataset.Id}/tables");
                 return tables.Value;
             } catch
             {
@@ -37,7 +37,7 @@ namespace Infrastructure.PowerBI
         public void UpdateSchema<T>(Dataset dataset, string tableName)
         {
             var schema = GetTableSchemaFor<T>(tableName);
-            _communication.Put(_tenantConfiguration, $"datasets/{dataset.Id}/tables/{tableName}", schema);
+            _communication.Put(_token, $"datasets/{dataset.Id}/tables/{tableName}", schema);
         }
 
         TableSchema GetTableSchema(Type type, string tableName)

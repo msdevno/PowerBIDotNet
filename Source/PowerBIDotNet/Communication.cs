@@ -17,45 +17,45 @@ namespace Infrastructure.PowerBI
             _serializer = serializer;
         }
 
-        public T Get<T>(TenantConfiguration configuration, string action)
+        public T Get<T>(Token token, string action)
         {
-            var request = CreateRequest(configuration, action, "GET");
+            var request = CreateRequest(token, action, "GET");
             return Get<T>(request);
         }
 
         public void Put<TInput>(
-            TenantConfiguration configuration,
+            Token token,
             string action,
             TInput message)
         {
             var json = _serializer.ToJson(message, SerializationOptions);
-            var request = CreateRequest(configuration, action, "PUT");
+            var request = CreateRequest(token, action, "PUT");
             Post(request, json);
         }
 
         public void Post<TInput>(
-            TenantConfiguration configuration,
+            Token token,
             string action,
             TInput message)
         {
             var json = _serializer.ToJson(message, SerializationOptions);
-            var request = CreateRequest(configuration, action, "POST");
+            var request = CreateRequest(token, action, "POST");
             Post(request, json);
         }
 
 
         public TOutput Post<TOutput, TInput>(
-            TenantConfiguration configuration,
+            Token token,
             string action, 
             TInput message)
         {
             var json = _serializer.ToJson(message, SerializationOptions);
-            var request = CreateRequest(configuration, action, "POST");
+            var request = CreateRequest(token, action, "POST");
 
             return Post<TOutput>(request, json);
         }
 
-        HttpWebRequest CreateRequest(TenantConfiguration configuration, string action, string method)
+        HttpWebRequest CreateRequest(Token token, string action, string method)
         {
             var url = $"{baseUrl}{action}";
             var request = System.Net.WebRequest.Create(url) as HttpWebRequest;
@@ -63,7 +63,7 @@ namespace Infrastructure.PowerBI
             request.Method = method;
             request.ContentLength = 0;
             request.ContentType = "application/json";
-            request.Headers.Add("Authorization", $"Bearer {configuration.AuthorizationToken}");
+            request.Headers.Add("Authorization", $"Bearer {token.Value}");
 
             return request;
         }

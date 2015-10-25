@@ -7,15 +7,15 @@ namespace Infrastructure.PowerBI
     {
         ICommunication _communication;
 
-        public Workspace(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Workspace(Token token, ICommunication communication)
         {
             _communication = communication;
 
-            Groups = new Groups(tenantConfiguration, communication);
-            Datasets = new Datasets(tenantConfiguration, communication);
-            Tables = new Tables(tenantConfiguration, communication);
-            Rows = new Rows(tenantConfiguration, communication);
-            Dashboards = new Dashboards(tenantConfiguration, communication);
+            Groups = new Groups(token, communication);
+            Datasets = new Datasets(token, communication);
+            Tables = new Tables(token, communication);
+            Rows = new Rows(token, communication);
+            Dashboards = new Dashboards(token, communication);
         }
 
         public IGroups Groups { get; private set; }

@@ -5,12 +5,12 @@ namespace Infrastructure.PowerBI
 {
     public class Dashboards : IDashboards
     {
-        TenantConfiguration _tenantConfiguration;
+        Token _token;
         ICommunication _communication;
   
-        public Dashboards(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Dashboards(Token token, ICommunication communication)
         {
-            _tenantConfiguration = tenantConfiguration;
+            _token = token;
             _communication = communication;
         }
 

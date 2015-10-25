@@ -5,18 +5,18 @@ namespace Infrastructure.PowerBI
 {
     public class Groups : IGroups
     {
-        TenantConfiguration _tenantConfiguration;
+        Token _token;
         ICommunication _communication;
 
-        public Groups(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Groups(Token token, ICommunication communication)
         {
-            _tenantConfiguration = tenantConfiguration;
+            _token = token;
             _communication = communication;
         }
 
         public IEnumerable<Group> GetAll()
         {
-            var groups = _communication.Get<GroupsWrapper>(_tenantConfiguration, "groups");
+            var groups = _communication.Get<GroupsWrapper>(_token, "groups");
             return groups.Value;
         }
     }

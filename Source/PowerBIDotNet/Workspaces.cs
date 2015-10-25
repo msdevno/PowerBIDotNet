@@ -16,7 +16,7 @@ namespace Infrastructure.PowerBI
         public IWorkspace GetFor(Tenant tenant)
         {
             var tenantConfiguration = _configurationForTenants.GetFor(tenant);
-            var workspace = new Workspace(tenantConfiguration, _communication);
+            var workspace = new Workspace(tenantConfiguration.AuthorizationToken, _communication);
             return workspace;
         }
     }

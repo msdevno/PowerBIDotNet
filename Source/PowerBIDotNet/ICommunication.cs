@@ -4,10 +4,10 @@ namespace Infrastructure.PowerBI
 {
     public interface ICommunication
     {
-        void Put<TInput>(TenantConfiguration configuration, string action, TInput message);
+        void Put<TInput>(Token token, string action, TInput message);
 
-        void Post<TInput>(TenantConfiguration configuration, string action, TInput message);
-        TOutput Post<TOutput, TInput>(TenantConfiguration configuration, string action, TInput message);
-        T Get<T>(TenantConfiguration configuration, string action);
+        void Post<TInput>(Token token, string action, TInput message);
+        TOutput Post<TOutput, TInput>(Token token, string action, TInput message);
+        T Get<T>(Token token, string action);
     }
 }

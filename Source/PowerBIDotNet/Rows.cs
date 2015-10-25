@@ -5,12 +5,12 @@ namespace Infrastructure.PowerBI
 {
     public class Rows : IRows
     {
-        TenantConfiguration _tenantConfiguration;
+        Token _token;
         ICommunication _communication;
 
-        public Rows(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Rows(Token token, ICommunication communication)
         {
-            _tenantConfiguration = tenantConfiguration;
+            _token = token;
             _communication = communication;
         }
 
@@ -22,13 +22,13 @@ namespace Infrastructure.PowerBI
         public void Add<T>(Dataset dataset, string tableName, T row)
         {
             var action = $"datasets/{dataset.Id}/tables/{tableName}/rows";
-            _communication.Post(_tenantConfiguration, action, new RowsWrapper<T> { Rows = new[] { row } });
+            _communication.Post(_token, action, new RowsWrapper<T> { Rows = new[] { row } });
         }
 
         public void Add<T>(Dataset dataset, string tableName, IEnumerable<T> rows)
         {
             var action = $"datasets/{dataset.Id}/tables/{tableName}/rows";
-            _communication.Post(_tenantConfiguration, action, new RowsWrapper<T> { Rows = rows.ToArray() });
+            _communication.Post(_token, action, new RowsWrapper<T> { Rows = rows.ToArray() });
         }
     }
 }

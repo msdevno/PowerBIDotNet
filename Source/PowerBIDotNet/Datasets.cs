@@ -6,18 +6,18 @@ namespace Infrastructure.PowerBI
 {
     public class Datasets : IDatasets
     {
-        TenantConfiguration _tenantConfiguration;
+        Token _token;
         ICommunication _communication;
 
-        public Datasets(TenantConfiguration tenantConfiguration, ICommunication communication)
+        public Datasets(Token token, ICommunication communication)
         {
-            _tenantConfiguration = tenantConfiguration;
+            _token = token;
             _communication = communication;
         }
 
         public IEnumerable<Dataset> GetAll()
         {
-            var datasets = _communication.Get<DatasetsWrapper>(_tenantConfiguration, "datasets");
+            var datasets = _communication.Get<DatasetsWrapper>(_token, "datasets");
             return datasets.Value;
         }
 
@@ -34,7 +34,7 @@ namespace Infrastructure.PowerBI
 
         public Dataset Create(string name, params TableSchema[] tables)
         {
-            var dataset = _communication.Post<Dataset, DatasetCreate>(_tenantConfiguration, $"datasets", new DatasetCreate
+            var dataset = _communication.Post<Dataset, DatasetCreate>(_token, $"datasets", new DatasetCreate
             {
                 Name = name,
                 Tables = tables
