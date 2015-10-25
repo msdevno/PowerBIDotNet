@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="Desktop.Tenants.View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:interaction="clr-namespace:Bifrost.Interaction;assembly=Bifrost.Client"
+             xmlns:viewModels="clr-namespace:Bifrost.ViewModels;assembly=Bifrost.Client"
+             xmlns:local="clr-namespace:Desktop.Tenants"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{viewModels:ViewModel {x:Type local:ViewModel}}"
+             x:Name="Root"
+             >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Width="Auto" HorizontalAlignment="Stretch" x:Name="TenantNameTextBox"/>
+                <Button Grid.Column="1" Command="{interaction:FromMethod AddTenant}" CommandParameter="{Binding ElementName=TenantNameTextBox, Path=Text}">Add</Button>
+            </Grid>
+
+            <ListView Grid.Row="1" 
+                      ItemsSource="{Binding Tenants}" 
+                      SelectedItem="{Binding SelectedTenant, Mode=TwoWay}"
+                      Width="Auto" 
+                      Height="Auto"
+                      VerticalAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Tenant}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+
+        <Grid Grid.Column="1" DataContext="{Binding SelectedTenant}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Column="0" Grid.Row="0">Tenant</Label>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Tenant.Value}"/>
+
+            <Label Grid.Column="0" Grid.Row="1">ClientId</Label>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Client.Value}"/>
+
+            <Label Grid.Column="0" Grid.Row="2">Dataset</Label>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Dataset}"/>
+
+            <Label Grid.Column="0" Grid.Row="3">Table</Label>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Table}"/>
+
+            <Button Grid.Column="0" 
+                    Grid.Row="4"
+                    DataContext="{Binding ElementName=Root, Path=DataContext}"
+                    Command="{interaction:FromMethod Save}">
+                Save
+            </Button>
+            
+            <Label Grid.Column="0" Grid.Row="6">Authentication</Label>
+            <Button Grid.Column="1" 
+                    Grid.Row="6" 
+                    DataContext="{Binding ElementName=Root, Path=DataContext}" 
+                    Command="{interaction:FromMethod Authenticate}">
+                Authenticate with Power BI
+            </Button>
+
+            <Button Grid.Column="1"
+                    Grid.Row="7"
+                    DataContext="{Binding ElementName=Root, Path=DataContext}" 
+                    Command="{interaction:FromMethod RefreshToken}">
+                Refresh AuthenticationToken
+            </Button>
+            <Button Grid.Column="1"
+                    Grid.Row="8"
+                    DataContext="{Binding ElementName=Root, Path=DataContext}" 
+                    Command="{interaction:FromMethod CreateDataset}">
+                Create Dataset and Table
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: tenants">
+                    <tr>
+                        <td>
+                            <a href="#" data-bind="text: tenant, click: $root.currentTenant.bind($data,$data)"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-xs-8">
+        </div>
+    </div>
+</div>

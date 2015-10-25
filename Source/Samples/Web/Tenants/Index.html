@@ -1,0 +1,73 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: tenants">
+                    <tr>
+                        <td>
+                            <a href="#" data-bind="text: tenant, click: $root.currentTenant.bind($data,$data)"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="submit"
+                    class="btn btn-default"
+                    data-bind="click: createNew">
+                New
+            </button>
+            <br />
+        </div>
+
+        <div class="col-xs-8">
+
+            <form data-bind="with: currentTenant">
+                <div class="form-group">
+                    <label for="tenant">Tenant</label>
+                    <input id="tenant" class="form-control" type="text" data-bind="value: tenant" />
+                </div>
+
+                <div class="form-group">
+                    <label for="clientId">Client Id</label>
+                    <input class="form-control" type="text" data-bind="value: client"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Client Secret</label>
+                    <input class="form-control" type="text" data-bind="value: clientSecret" />
+                </div>
+
+                <div class="form-group">
+                    <label for="">Datasaet</label>
+                    <input class="form-control" type="text" data-bind="value: dataset" />
+                </div>
+
+                <div class="form-group">
+                    <label for="">Table</label>
+                    <input class="form-control" type="text" data-bind="value: table" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-default"
+                        data-bind="attr: { disabled: $root.isNew }, click: $root.authenticate">
+                    Authenticate
+                </button>
+                <br />
+                <br />
+                <button type="submit"
+                        class="btn btn-default"
+                        data-bind="click: $root.save">
+                    Save
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
