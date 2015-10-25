@@ -34,7 +34,7 @@ namespace Desktop.Simulator
 
         public void AddEvent()
         {
-            var connectionString = "Endpoint=sb://socialboards.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=742kzJxgwFmy9xh8MIfVQeiqapiXqKh9GEXcR6Pm3NI=";
+            var connectionString = "";
 
             var client = EventHubClient.CreateFromConnectionString(connectionString,"filtered");
 
