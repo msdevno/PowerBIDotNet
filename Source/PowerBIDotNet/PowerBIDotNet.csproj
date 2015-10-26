@@ -91,7 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesktopAuthentication.cs" />
+    <Compile Include="Authentication.cs" />
     <Compile Include="ClientSecret.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Column.cs" />
@@ -132,7 +132,7 @@
     <Compile Include="TenantConfiguration.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Token.cs" />
-    <Compile Include="WebAuthentication.cs" />
+    <Compile Include="Tokens.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="Workspaces.cs" />
   </ItemGroup>

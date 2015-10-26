@@ -16,7 +16,7 @@ namespace PowerBIDotNet
         public IWorkspace GetFor(Tenant tenant)
         {
             var tenantConfiguration = _configurationForTenants.GetFor(tenant);
-            var workspace = new Workspace(tenantConfiguration.AuthorizationToken, _communication);
+            var workspace = new Workspace(tenantConfiguration.AccessToken, _communication);
             return workspace;
         }
     }

@@ -2,8 +2,9 @@
 {
     public interface IAuthentication
     {
-        void AuthenticateFor(Tenant tenant);
+        Tokens GetTokens(Client client);
+        Tokens GetTokens(Client client, ClientSecret clientSecret, Token token, string redirectUri);
 
-        void RefreshTokenFor(Tenant tenant);
+        Tokens RefreshToken(Client client, Token refreshToken);
     }
 }

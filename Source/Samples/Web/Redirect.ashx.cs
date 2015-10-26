@@ -12,10 +12,23 @@ namespace Web
 
         public void ProcessRequest(HttpContext context)
         {
+            var code = context.Request.Params["code"];
             var tenant = context.Request.Params["state"];
 
+
+            var configurationForTenants = Configure.Instance.Container.Get<IConfigurationForTenants>();
+            var configuration = configurationForTenants.GetFor(tenant);
+
             var authentication = Configure.Instance.Container.Get<IAuthentication>();
-            authentication.AuthenticateFor(tenant);
+
+
+            var tokens = authentication.GetTokens(configuration.Client, configuration.ClientSecret, code, "http://localhost:30348/Redirect.ashx");
+
+            configuration.AccessToken = tokens.AccessToken;
+            configuration.RefreshToken = tokens.RefreshToken;
+
+
+            configurationForTenants.Save(configuration);
 
             /*
 

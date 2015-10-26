@@ -38,12 +38,18 @@ namespace Desktop.Tenants
 
         public void Authenticate()
         {
-            _authentication.AuthenticateFor(SelectedTenant.Tenant);
+            var tokens = _authentication.GetTokens(SelectedTenant.Client);
+            SelectedTenant.AccessToken = tokens.AccessToken;
+            SelectedTenant.RefreshToken = tokens.RefreshToken;
+            _configurationForTenants.Save(SelectedTenant);
         }
 
         public void RefreshToken()
         {
-            _authentication.RefreshTokenFor(SelectedTenant.Tenant);
+            var tokens = _authentication.RefreshToken(SelectedTenant.Client, SelectedTenant.RefreshToken);
+            SelectedTenant.AccessToken = tokens.AccessToken;
+            SelectedTenant.RefreshToken = tokens.RefreshToken;
+            _configurationForTenants.Save(SelectedTenant);
         }
 
 

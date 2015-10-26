@@ -11,11 +11,30 @@
              d:DesignHeight="300" d:DesignWidth="300"
              DataContext="{viewModels:ViewModel {x:Type local:ViewModel}}">
     <Grid>
-        <StackPanel Orientation="Vertical">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" 
+                      ItemsSource="{Binding Tenants}" 
+                      SelectedItem="{Binding SelectedTenant, Mode=TwoWay}"
+                      Width="Auto" 
+                      Height="Auto"
+                      VerticalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tenant}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
             <Button Command="{interaction:FromMethod AddToPowerBI}">Add directly to Power BI</Button>
 
             <Button Command="{interaction:FromMethod AddEvent}">Add Event</Button>
+
+            <Button Command="{interaction:FromMethod AuthenticateAndAddToPowerBI}">Authenticate and add directly to Power BI</Button>
         </StackPanel>
-            
     </Grid>
 </UserControl>

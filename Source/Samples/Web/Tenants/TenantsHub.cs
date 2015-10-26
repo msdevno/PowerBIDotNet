@@ -22,8 +22,8 @@ namespace Web.Tenants
 
         public void Save(TenantConfiguration tenantConfiguration)
         {
-            if (string.IsNullOrEmpty(tenantConfiguration.AuthorizationToken))
-                tenantConfiguration.AuthorizationToken = "[Not Set]";
+            if (string.IsNullOrEmpty(tenantConfiguration.AccessToken))
+                tenantConfiguration.AccessToken = "[Not Set]";
 
             if (string.IsNullOrEmpty(tenantConfiguration.RefreshToken))
                 tenantConfiguration.RefreshToken = "[Not Set]";

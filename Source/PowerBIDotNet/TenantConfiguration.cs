@@ -6,7 +6,7 @@
         {
             Tenant = "[Not Set]";
             Client = "[Not Set]";
-            AuthorizationToken = "[Not Set]";
+            AccessToken = "[Not Set]";
             RefreshToken = "[Not Set]";
         }
 
@@ -16,7 +16,7 @@
 
         public ClientSecret ClientSecret { get; set; }
 
-        public Token AuthorizationToken { get; set; }
+        public Token AccessToken { get; set; }
 
         public Token RefreshToken { get; set; }
 
