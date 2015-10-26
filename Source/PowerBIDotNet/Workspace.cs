@@ -26,5 +26,11 @@
         public IDashboards Dashboards { get; private set; }
 
         public IImports Imports { get; private set; }
+
+        public static IWorkspace GetFor(Token accessToken)
+        {
+            var workspace = new Workspace(accessToken, new Communication());
+            return workspace;
+        }
     }
 }

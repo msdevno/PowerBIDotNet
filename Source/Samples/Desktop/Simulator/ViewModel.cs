@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using Bifrost.Extensions;
 using Bifrost.Serialization;
 using Events;
-using PowerBIDotNet;
-using Microsoft.ServiceBus.Messaging;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using Bifrost.Extensions;
+using Microsoft.ServiceBus.Messaging;
+using PowerBIDotNet;
 
 namespace Desktop.Simulator
 {
@@ -39,10 +38,9 @@ namespace Desktop.Simulator
 
         public void AddToPowerBI()
         {
-            var configuration = _configurationForTenants.GetFor(SelectedTenant.Tenant);
             var workspace = _workspaces.GetFor(SelectedTenant.Tenant);
 
-            var dataset = workspace.Datasets.GetByName(configuration.Dataset);
+            var dataset = workspace.Datasets.GetByName(SelectedTenant.Dataset);
             workspace.Rows.Add(dataset, new Message { ResponseInMinutes = Random.Next(0,45) });
         }
 
@@ -70,15 +68,14 @@ namespace Desktop.Simulator
 
         public void AuthenticateAndAddToPowerBI()
         {
-            /*
             var tokenCache = new TokenCache();
             var authenticationContext = new AuthenticationContext(AuthorityUri, tokenCache);
-            var result = authenticationContext.AcquireToken(ResourceUri, configuration.Client, new Uri(RedirectUri), PromptBehavior.RefreshSession);
+            var result = authenticationContext.AcquireToken(ResourceUri, SelectedTenant.Client, new Uri(RedirectUri), PromptBehavior.RefreshSession);
 
-            configuration.AuthorizationToken = result.AccessToken;
-            configuration.RefreshToken = result.RefreshToken;
-            */
+            var workspace = Workspace.GetFor(result.AccessToken);
 
+            var dataset = workspace.Datasets.GetByName(SelectedTenant.Dataset);
+            workspace.Rows.Add(dataset, new Message { ResponseInMinutes = Random.Next(0, 45) });
         }
     }
 }
