@@ -7,16 +7,34 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Defines the functionality for a workspace
+    /// </summary>
     public interface IWorkspace
     {
+        /// <summary>
+        /// Gets the <see cref="IImports"/> functionality
+        /// </summary>
         IImports Imports { get; }
 
+        /// <summary>
+        /// Gets the <see cref="IGroups"/> functionality
+        /// </summary>
         IGroups Groups { get; }
 
+        /// <summary>
+        /// Gets the <see cref="IRows"/> functionality
+        /// </summary>
         IRows Rows { get; }
 
+        /// <summary>
+        /// Gets the <see cref="IDatasets"/> functionality
+        /// </summary>
         IDatasets Datasets { get;  }
 
+        /// <summary>
+        /// Gets the <see cref="ITables"/> functionality
+        /// </summary>
         ITables Tables { get; }
     }
 }

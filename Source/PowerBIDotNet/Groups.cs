@@ -6,11 +6,19 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IGroups"/>
+    /// </summary>
     public class Groups : IGroups
     {
         Token _token;
         ICommunication _communication;
 
+        /// <summary>
+        /// Initializes an instance of <see cref="Groups"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
         public Groups(Token token, ICommunication communication)
         {
             _token = token;

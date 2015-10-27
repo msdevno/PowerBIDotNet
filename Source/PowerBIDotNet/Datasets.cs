@@ -7,11 +7,19 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IDatasets"/>
+    /// </summary>
     public class Datasets : IDatasets
     {
         Token _token;
         ICommunication _communication;
 
+        /// <summary>
+        /// Initializes an instance of <see cref="Datasets"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
         public Datasets(Token token, ICommunication communication)
         {
             _token = token;

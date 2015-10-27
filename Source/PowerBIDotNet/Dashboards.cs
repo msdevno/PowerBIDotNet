@@ -6,11 +6,19 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IDashboards"/>
+    /// </summary>
     public class Dashboards : IDashboards
     {
         Token _token;
         ICommunication _communication;
-  
+
+        /// <summary>
+        /// Initializes an instance of <see cref="Dashboards"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
         public Dashboards(Token token, ICommunication communication)
         {
             _token = token;

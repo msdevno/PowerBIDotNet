@@ -6,11 +6,19 @@ using System.Linq;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IRows"/>
+    /// </summary>
     public class Rows : IRows
     {
         Token _token;
         ICommunication _communication;
 
+        /// <summary>
+        /// Initializes an instance of <see cref="Rows"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
         public Rows(Token token, ICommunication communication)
         {
             _token = token;

@@ -5,8 +5,16 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Defines the functionality for working with <see cref="Dashboard">dashboards</see>
+    /// </summary>
     public interface IDashboards
     {
+        /// <summary>
+        /// Get all dashboards for a given group
+        /// </summary>
+        /// <param name="group"><see cref="Group"/> to get for</param>
+        /// <returns>All <see cref="Dashboard">dashboards</see> for the <see cref="Group"/></returns>
         IEnumerable<Dashboard> GetFor(Group group);
     }
 }
