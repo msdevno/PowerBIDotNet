@@ -25,10 +25,12 @@ namespace PowerBIDotNet
             _communication = communication;
         }
 
+#pragma warning disable 1591 // Xml Comments
         public IEnumerable<Group> GetAll()
         {
             var groups = _communication.Get<GroupsWrapper>(_token, "groups");
             return groups.Value;
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

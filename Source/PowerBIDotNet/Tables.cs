@@ -16,6 +16,8 @@ namespace PowerBIDotNet
             _token = token;
             _communication = communication;
         }
+
+#pragma warning disable 1591 // Xml Comments
         public IEnumerable<Table> GetFor(Group group, Dataset dataset)
         {
             throw new NotImplementedException();
@@ -110,5 +112,7 @@ namespace PowerBIDotNet
             var schema = GetTableSchema(typeof(T), tableName);
             return schema;
         }
+
+#pragma warning restore 1591 // Xml Comments
     }
 }

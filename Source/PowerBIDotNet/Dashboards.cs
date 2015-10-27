@@ -25,9 +25,11 @@ namespace PowerBIDotNet
             _communication = communication;
         }
 
+#pragma warning disable 1591 // Xml Comments
         public IEnumerable<Dashboard> GetFor(Group group)
         {
             throw new NotImplementedException();
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

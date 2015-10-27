@@ -3,8 +3,14 @@
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents a wrapper for the <see cref="Dataset"/> when working with the API
+    /// </summary>
     public class DatasetsWrapper
     {
+        /// <summary>
+        /// Gets or sets the <see cref="Dataset">datasets</see>
+        /// </summary>
         public Dataset[] Value { get; set; }
     }
 }

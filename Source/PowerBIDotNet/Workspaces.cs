@@ -16,11 +16,13 @@ namespace PowerBIDotNet
             _configurationForTenants = configurationForTenants;
         }
 
+#pragma warning disable 1591 // Xml Comments
         public IWorkspace GetFor(Tenant tenant)
         {
             var tenantConfiguration = _configurationForTenants.GetFor(tenant);
             var workspace = new Workspace(tenantConfiguration.AccessToken, _communication);
             return workspace;
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

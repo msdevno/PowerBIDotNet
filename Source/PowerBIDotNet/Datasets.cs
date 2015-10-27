@@ -26,6 +26,7 @@ namespace PowerBIDotNet
             _communication = communication;
         }
 
+#pragma warning disable 1591 // Xml Comments
         public IEnumerable<Dataset> GetAll()
         {
             var datasets = _communication.Get<DatasetsWrapper>(_token, "datasets");
@@ -52,5 +53,6 @@ namespace PowerBIDotNet
             });
             return dataset;
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

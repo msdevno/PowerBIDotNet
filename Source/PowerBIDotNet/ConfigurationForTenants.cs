@@ -2,15 +2,18 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information. 
 
 using System;
-using System.Reflection;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.WindowsAzure.Storage.Table;
+using System.Reflection;
 using Bifrost.Concepts;
 using Microsoft.WindowsAzure.Storage;
-using System.Collections.Generic;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IConfigurationForTenants"/> that is using Azure Table Storage for holding <see cref="TenantConfiguration"/>
+    /// </summary>
     public class ConfigurationForTenants : IConfigurationForTenants
     {
         const string TableName = "TenantsConfiguration";
@@ -20,7 +23,10 @@ namespace PowerBIDotNet
 
         CloudTable _table;
 
-
+        /// <summary>
+        /// Initializes a new instance of <see cref="ConfigurationForTenants"/>
+        /// </summary>
+        /// <param name="storageConfiguration"></param>
         public ConfigurationForTenants(StorageConfiguration storageConfiguration)
         {
             _storageConfiguration = storageConfiguration;
@@ -37,7 +43,7 @@ namespace PowerBIDotNet
             _table.CreateIfNotExists();
         }
 
-
+#pragma warning disable 1591 // Xml Comments
 
         public TenantConfiguration GetFor(Tenant tenant)
         {
@@ -79,6 +85,7 @@ namespace PowerBIDotNet
             var all = _table.CreateQuery<DynamicTableEntity>().Select(Map).ToArray();
             return all;
         }
+#pragma warning restore 1591 // Xml Comments
 
 
         TenantConfiguration Map(DynamicTableEntity entity)

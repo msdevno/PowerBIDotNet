@@ -6,6 +6,9 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IAuthentication"/>
+    /// </summary>
     public class Authentication : IAuthentication
     {
         // https://auth0.com/docs/connections/enterprise/azure-active-directory
@@ -14,6 +17,7 @@ namespace PowerBIDotNet
         const string RedirectUri = "https://login.live.com/oauth20_desktop.srf";
         const string ResourceUri = "https://analysis.windows.net/powerbi/api";
 
+#pragma warning disable 1591 // Xml Comments
         public Tokens GetTokens(Client client)
         {
             var tokenCache = new TokenCache();
@@ -57,5 +61,6 @@ namespace PowerBIDotNet
             };
             return tokens;
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

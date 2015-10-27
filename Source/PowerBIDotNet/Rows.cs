@@ -25,6 +25,7 @@ namespace PowerBIDotNet
             _communication = communication;
         }
 
+#pragma warning disable 1591 // Xml Comments
         public void Add<T>(Dataset dataset, T row)
         {
             Add(dataset, typeof(T).Name, row);
@@ -41,5 +42,6 @@ namespace PowerBIDotNet
             var action = $"datasets/{dataset.Id}/tables/{tableName}/rows";
             _communication.Post(_token, action, new RowsWrapper<T> { Rows = rows.ToArray() });
         }
+#pragma warning restore 1591 // Xml Comments
     }
 }

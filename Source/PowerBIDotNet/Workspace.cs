@@ -18,6 +18,7 @@ namespace PowerBIDotNet
             Dashboards = new Dashboards(token, communication);
         }
 
+#pragma warning disable 1591 // Xml Comments
         public IGroups Groups { get; private set; }
 
         public IDatasets Datasets { get; private set; }
@@ -29,6 +30,8 @@ namespace PowerBIDotNet
         public IDashboards Dashboards { get; private set; }
 
         public IImports Imports { get; private set; }
+
+#pragma warning restore 1591 // Xml Comments
 
         public static IWorkspace GetFor(Token accessToken)
         {

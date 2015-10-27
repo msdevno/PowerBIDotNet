@@ -9,13 +9,15 @@ using Newtonsoft.Json.Serialization;
 
 namespace PowerBIDotNet
 {
-
+    /// <summary>
+    /// Represents an implementation of <see cref="ICommunication"/>
+    /// </summary>
     public class Communication : ICommunication
     {
         static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         const string baseUrl = "https://api.powerbi.com/v1.0/myorg/";
 
-
+#pragma warning disable 1591 // Xml Comments
         public T Get<T>(Token token, string action)
         {
             var request = CreateRequest(token, action, "GET");
@@ -54,6 +56,7 @@ namespace PowerBIDotNet
 
             return Post<TOutput>(request, json);
         }
+#pragma warning restore 1591 // Xml Comments
 
         HttpWebRequest CreateRequest(Token token, string action, string method)
         {
@@ -98,5 +101,6 @@ namespace PowerBIDotNet
             Post(request, json);
             return Get<T>(request);
         }
+
     }
 }
