@@ -6,11 +6,19 @@ using System.Collections.Generic;
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="ITables"/>
+    /// </summary>
     public class Tables : ITables
     {
         Token _token;
         ICommunication _communication;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="Tables"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
         public Tables(Token token, ICommunication communication)
         {
             _token = token;

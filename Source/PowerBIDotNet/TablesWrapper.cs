@@ -3,8 +3,14 @@
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents a wrapper for working with <see cref="Table"/> for the API
+    /// </summary>
     public class TablesWrapper
     {
+        /// <summary>
+        /// Gets or sets the tables
+        /// </summary>
         public Table[] Value { get; set; }
     }
 }

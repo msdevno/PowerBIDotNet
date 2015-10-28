@@ -13,7 +13,7 @@ namespace PowerBIDotNet
         /// <summary>
         /// Implicitly convert from string to <see cref="Client"/>
         /// </summary>
-        /// <param name="client"></param>
+        /// <param name="client">Client as string</param>
         public static implicit operator Client (string client)
         {
             return new Client { Value = client };

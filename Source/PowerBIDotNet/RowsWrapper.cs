@@ -3,8 +3,15 @@
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents a wrapper for working with rows for the API
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class RowsWrapper<T>
     {
+        /// <summary>
+        /// Gets or sets the rows
+        /// </summary>
         public T[] Rows { get; set; }
     }
 }

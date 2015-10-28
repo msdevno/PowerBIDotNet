@@ -4,7 +4,7 @@
 namespace PowerBIDotNet
 {
     /// <summary>
-    /// Represents a dataset in a <see cref="IWorksapce"/>
+    /// Represents a dataset in a <see cref="IWorkspace"/>
     /// </summary>
     public class Dataset
     {

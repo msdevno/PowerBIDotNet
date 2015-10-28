@@ -3,8 +3,14 @@
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents a table within a <see cref="Dataset"/>
+    /// </summary>
     public class Table
     {
+        /// <summary>
+        /// Gets or sets the name of the table
+        /// </summary>
         public string Name { get; set; }
     }
 }

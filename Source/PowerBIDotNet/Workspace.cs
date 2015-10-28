@@ -3,10 +3,18 @@
 
 namespace PowerBIDotNet
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IWorkspace"/>
+    /// </summary>
     public class Workspace : IWorkspace
     {
         ICommunication _communication;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="Workspace"/> for a given <see cref="Token"/> with a given <see cref="ICommunication"/>
+        /// </summary>
+        /// <param name="token"><see cref="Token">Access token to use</see></param>
+        /// <param name="communication"><see cref="ICommunication"/> to use</param>
         public Workspace(Token token, ICommunication communication)
         {
             _communication = communication;
@@ -33,6 +41,11 @@ namespace PowerBIDotNet
 
 #pragma warning restore 1591 // Xml Comments
 
+        /// <summary>
+        /// Get a <see cref="IWorkspace"/> for a specific <see cref="Token"/>
+        /// </summary>
+        /// <param name="accessToken"><see cref="Token">Access token</see> to get <see cref="IWorkspace">workspace</see> for</param>
+        /// <returns>A new instance of a <see cref="IWorkspace">workspace</see> for the given token</returns>
         public static IWorkspace GetFor(Token accessToken)
         {
             var workspace = new Workspace(accessToken, new Communication());

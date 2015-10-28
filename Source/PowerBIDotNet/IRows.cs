@@ -37,7 +37,7 @@ namespace PowerBIDotNet
         /// <typeparam name="T">Type of row to add</typeparam>
         /// <param name="dataset"><see cref="Dataset"/> to add to</param>
         /// <param name="tableName">Name of table to add to</param>
-        /// <param name="row">Row to add</param>
+        /// <param name="rows">Rows to add</param>
         void Add<T>(Dataset dataset, string tableName, IEnumerable<T> rows);
     }
 }
