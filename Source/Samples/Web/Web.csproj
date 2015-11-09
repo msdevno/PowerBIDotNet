@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <RestorePackages>True</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -255,6 +256,8 @@
   <Import Project="..\..\packages\LessMsbuildTasks.1.0.7\tools\LessCompiler.targets" Condition="Exists('..\..\packages\LessMsbuildTasks.1.0.7\tools\LessCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
+
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

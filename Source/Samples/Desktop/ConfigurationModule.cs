@@ -7,8 +7,6 @@ namespace Desktop
     {
         public override void Load()
         {
-            Bind<IAuthentication>().To<DesktopAuthentication>();
-
             Bind<StorageConfiguration>().ToConstant(new StorageConfiguration
             {
                 AccountName = "",
