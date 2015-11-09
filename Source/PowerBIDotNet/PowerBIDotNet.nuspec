@@ -32,7 +32,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\debug\PowerBIDotNet.*" target="lib\net452"/>
+    <file src="bin\release\PowerBIDotNet.*" target="lib\net452"/>
 	<file src="**\*.cs" target="src" />
   </files>
 </package>
