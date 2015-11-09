@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved. 
 // Licensed under the MIT license. See LICENSE file in the project root for full license information. 
 
-namespace PowerBIDotNet
+namespace PowerBIDotNet.Wrappers
 {
     /// <summary>
     /// Represents a wrapper for working with <see cref="Table"/> for the API
