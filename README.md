@@ -3,4 +3,4 @@
 The purpose of this project is to provide a managed .NET wrapper for working with Power BI. 
 One of the goals is also to explore patterns for building multi-tenant solutions utilizing Power BI.
 
-Read more [here](wiki)
+Read more [here](http://github.com/msdevno/powerbidotnet/wiki)
