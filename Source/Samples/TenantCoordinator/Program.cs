@@ -1,4 +1,7 @@
 ﻿using System;
+#if(!DEBUG)
+using Microsoft.Azure.WebJobs;
+#endif
 using Microsoft.ServiceBus.Messaging;
 
 namespace TenantCoordinator
