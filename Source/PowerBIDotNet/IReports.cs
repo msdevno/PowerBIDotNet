@@ -16,8 +16,6 @@ namespace PowerBIDotNet
         /// <returns></returns>
         IEnumerable<Report> GetAll();
 
-
-
         /// <summary>
         /// Get all <see cref="Report">reports</see> for a group in the <see cref="IWorkspace"/>
         /// </summary>

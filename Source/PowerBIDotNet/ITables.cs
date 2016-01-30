@@ -60,6 +60,5 @@ namespace PowerBIDotNet
         /// <param name="dataset"><see cref="Dataset"/> to update</param>
         /// <param name="tableName">Name of the table to update for</param>
         void UpdateSchema<T>(Dataset dataset, string tableName);
-        
     }
 }

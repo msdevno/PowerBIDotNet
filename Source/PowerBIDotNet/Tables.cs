@@ -54,6 +54,18 @@ namespace PowerBIDotNet
             _communication.Put(_token, $"datasets/{dataset.Id}/tables/{tableName}", schema);
         }
 
+        public TableSchema GetTableSchemaFor<T>()
+        {
+            return GetTableSchemaFor<T>(typeof(T).Name);
+        }
+
+        public TableSchema GetTableSchemaFor<T>(string tableName)
+        {
+            var schema = GetTableSchema(typeof(T), tableName);
+            return schema;
+        }
+#pragma warning restore 1591 // Xml Comments
+
         TableSchema GetTableSchema(Type type, string tableName)
         {
             var schema = new TableSchema { Name = tableName };
@@ -67,8 +79,8 @@ namespace PowerBIDotNet
             foreach (var p in properties)
             {
                 var propertyName = p.PropertyType.Name;
-                if (propertyName.StartsWith("Nullable") && 
-                    p.PropertyType.GenericTypeArguments != null && 
+                if (propertyName.StartsWith("Nullable") &&
+                    p.PropertyType.GenericTypeArguments != null &&
                     p.PropertyType.GenericTypeArguments.Length == 1)
                     propertyName = p.PropertyType.GenericTypeArguments[0].Name;
 
@@ -110,18 +122,5 @@ namespace PowerBIDotNet
 
             return schema;
         }
-
-        public TableSchema GetTableSchemaFor<T>()
-        {
-            return GetTableSchemaFor<T>(typeof(T).Name);
-        }
-
-        public TableSchema GetTableSchemaFor<T>(string tableName)
-        {
-            var schema = GetTableSchema(typeof(T), tableName);
-            return schema;
-        }
-
-#pragma warning restore 1591 // Xml Comments
     }
 }

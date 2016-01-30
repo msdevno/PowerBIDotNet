@@ -30,7 +30,6 @@ namespace PowerBIDotNet
         /// <param name="row">Row to add</param>
         void Add<T>(Dataset dataset, string tableName,  T row);
 
-
         /// <summary>
         /// Add a set of rows to a specific table in a <see cref="Dataset"/> 
         /// </summary>

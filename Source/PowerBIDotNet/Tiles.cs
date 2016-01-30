@@ -39,9 +39,7 @@ namespace PowerBIDotNet
             {
                 return new Tile[0];
             }
-
         }
-
 #pragma warning restore 1591 // Xml Comments
     }
 }
