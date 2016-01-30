@@ -8,6 +8,7 @@ using Events;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.ServiceBus.Messaging;
 using PowerBIDotNet;
+using ISerializer = Bifrost.Serialization.ISerializer;
 
 namespace Desktop.Simulator
 {

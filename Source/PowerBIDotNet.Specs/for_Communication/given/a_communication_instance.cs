@@ -6,6 +6,6 @@ namespace PowerBIDotNet.Specs.for_Communication.given
     {
         protected static Communication communication;
 
-        Establish context = () => communication = new Communication(web_request_factory_mock.Object);
+        Establish context = () => communication = new Communication(web_request_factory_mock.Object, serializer_mock.Object);
     }
 }

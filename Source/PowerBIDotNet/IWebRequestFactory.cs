@@ -11,10 +11,10 @@ namespace PowerBIDotNet
     public interface IWebRequestFactory
     {
         /// <summary>
-        /// Create a new instance of <see cref="HttpWebRequest"/> based on Url
+        /// Create a new instance of <see cref="WebRequest"/> based on Url
         /// </summary>
         /// <param name="url">Url to create for</param>
-        /// <returns>A new instance of <see cref="HttpWebRequest"/></returns>
-        HttpWebRequest Create(string url);
+        /// <returns>A new instance of <see cref="WebRequest"/></returns>
+        WebRequest CreateRequestThatIsKeptAlive(string url);
     }
 }

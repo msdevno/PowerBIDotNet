@@ -11,9 +11,11 @@ namespace PowerBIDotNet
     public class WebRequestFactory : IWebRequestFactory
     {
 #pragma warning disable 1591 // Xml Comments
-        public HttpWebRequest Create(string url)
+        public WebRequest CreateRequestThatIsKeptAlive(string url)
         {
-            return WebRequest.Create(url) as HttpWebRequest;
+            var request = WebRequest.Create(url) as HttpWebRequest;
+            request.KeepAlive = true;
+            return request;
         }
 #pragma warning restore 1591 // Xml Comments
     }

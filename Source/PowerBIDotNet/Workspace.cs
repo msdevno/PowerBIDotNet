@@ -54,7 +54,7 @@ namespace PowerBIDotNet
         /// <returns>A new instance of a <see cref="IWorkspace">workspace</see> for the given token</returns>
         public static IWorkspace GetFor(Token accessToken)
         {
-            var workspace = new Workspace(accessToken, new Communication(new WebRequestFactory()));
+            var workspace = new Workspace(accessToken, new Communication(new WebRequestFactory(), new Serializer()));
             return workspace;
         }
     }

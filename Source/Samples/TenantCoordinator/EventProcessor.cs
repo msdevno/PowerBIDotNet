@@ -6,6 +6,7 @@ using Bifrost.Serialization;
 using Events;
 using PowerBIDotNet;
 using Microsoft.ServiceBus.Messaging;
+using ISerializer = Bifrost.Serialization.ISerializer;
 
 namespace TenantCoordinator
 {
