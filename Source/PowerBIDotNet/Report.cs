@@ -4,7 +4,7 @@
 namespace PowerBIDotNet
 {
     /// <summary>
-    /// Represents a report in a <see cref="Import">import</see>
+    /// Represents a report in a <see cref="Report">report</see>
     /// </summary>
     public class Report
     {
@@ -19,12 +19,12 @@ namespace PowerBIDotNet
         public string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the URL that can be used to navigate directly to a <see cref="Report"/>
         /// </summary>
         public string WebUrl { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the URL that can be used for embedding the <see cref="Report"/> into your own application
         /// </summary>
         public string EmbedUrl { get; set; }
     }
