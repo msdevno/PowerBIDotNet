@@ -27,7 +27,8 @@ namespace PowerBIDotNet
             var tokens = new Tokens
             {
                 AccessToken = result.AccessToken,
-                RefreshToken = result.RefreshToken
+                RefreshToken = result.RefreshToken,
+                ExpiresOn = result.ExpiresOn
             };
 
             return tokens;
@@ -44,7 +45,8 @@ namespace PowerBIDotNet
             var tokens = new Tokens
             {
                 AccessToken = result.AccessToken,
-                RefreshToken = result.RefreshToken
+                RefreshToken = result.RefreshToken,
+                ExpiresOn = result.ExpiresOn
             };
             return tokens;
         }
@@ -57,7 +59,8 @@ namespace PowerBIDotNet
             var tokens = new Tokens
             {
                 AccessToken = result.AccessToken,
-                RefreshToken = result.RefreshToken
+                RefreshToken = result.RefreshToken,
+                ExpiresOn = result.ExpiresOn
             };
             return tokens;
         }
