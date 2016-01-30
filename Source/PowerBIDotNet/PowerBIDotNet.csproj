@@ -104,8 +104,10 @@
     <Compile Include="DatasetCreate.cs" />
     <Compile Include="Datasets.cs" />
     <Compile Include="IReports.cs" />
+    <Compile Include="IWebRequestFactory.cs" />
     <Compile Include="Reports.cs" />
     <Compile Include="Tiles.cs" />
+    <Compile Include="WebRequestFactory.cs" />
     <Compile Include="Wrappers\DatasetsWrapper.cs" />
     <Compile Include="Groups.cs" />
     <Compile Include="Wrappers\GroupsWrapper.cs" />

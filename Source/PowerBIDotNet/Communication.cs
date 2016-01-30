@@ -16,6 +16,18 @@ namespace PowerBIDotNet
     {
         static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
 
+        IWebRequestFactory _webRequestFactory;
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="Communication"/>
+        /// </summary>
+        /// <param name="webRequestFactory"><see cref="IWebRequestFactory"/> to use for creating <see cref="WebRequest">Web requests</see></param>
+        public Communication(IWebRequestFactory webRequestFactory)
+        {
+            _webRequestFactory = webRequestFactory;
+        }
+
+
 #pragma warning disable 1591 // Xml Comments
         public T Get<T>(Token token, string action, string version="v1.0")
         {
@@ -63,7 +75,7 @@ namespace PowerBIDotNet
         HttpWebRequest CreateRequest(Token token, string action, string method, string version = "v1.0")
         {
             var url = $"https://api.powerbi.com/{version}/myorg/{action}";
-            var request = WebRequest.Create(url) as HttpWebRequest;
+            var request = _webRequestFactory.Create(url);
             request.KeepAlive = true;
             request.Method = method;
             request.ContentLength = 0;
