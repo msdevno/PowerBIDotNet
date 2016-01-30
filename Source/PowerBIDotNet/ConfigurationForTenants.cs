@@ -33,23 +33,8 @@ namespace PowerBIDotNet
             SetupTable();
         }
 
-        void SetupTable()
-        {
-            var connectionString = $"DefaultEndpointsProtocol=https;AccountName={_storageConfiguration.AccountName};AccountKey={_storageConfiguration.AccessKey}";
-
-            var storageAccount = CloudStorageAccount.Parse(connectionString);
-            var tableClient = storageAccount.CreateCloudTableClient();
-
-            try
-            {
-                _table = tableClient.GetTableReference(TableName);
-                _table.CreateIfNotExists();
-            }
-            catch { }
-        }
 
 #pragma warning disable 1591 // Xml Comments
-
         public TenantConfiguration GetFor(Tenant tenant)
         {
             var query = _table.CreateQuery<DynamicTableEntity>()
@@ -92,6 +77,20 @@ namespace PowerBIDotNet
         }
 #pragma warning restore 1591 // Xml Comments
 
+        void SetupTable()
+        {
+            var connectionString = $"DefaultEndpointsProtocol=https;AccountName={_storageConfiguration.AccountName};AccountKey={_storageConfiguration.AccessKey}";
+
+            var storageAccount = CloudStorageAccount.Parse(connectionString);
+            var tableClient = storageAccount.CreateCloudTableClient();
+
+            try
+            {
+                _table = tableClient.GetTableReference(TableName);
+                _table.CreateIfNotExists();
+            }
+            catch { }
+        }
 
         TenantConfiguration Map(DynamicTableEntity entity)
         {
