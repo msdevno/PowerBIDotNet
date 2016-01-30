@@ -9,12 +9,12 @@ namespace Simple
         static void Main(string[] args)
         {
             var authentication = new Authentication();
-            //var tokens = authentication.GetTokens("8a5eb107-97bf-40ea-96c4-5c6a2d10ea9a");
+            var tokens = authentication.GetTokens("8a5eb107-97bf-40ea-96c4-5c6a2d10ea9a");
             //var tokens = authentication.GetTokens("563d6944-fa12-43ca-afa7-e40f95357321");
 
 
 
-            var workspace = Workspace.GetFor(token);
+            var workspace = Workspace.GetFor(tokens.AccessToken);
             
             var dashboards = workspace.Dashboards.GetAll();
 
