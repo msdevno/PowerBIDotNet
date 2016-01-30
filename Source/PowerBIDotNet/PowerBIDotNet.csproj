@@ -101,7 +101,7 @@
     <Compile Include="Communication.cs" />
     <Compile Include="ConfigurationForTenants.cs" />
     <Compile Include="Dashboards.cs" />
-    <Compile Include="DatasetCreate.cs" />
+    <Compile Include="Commands\DatasetCreate.cs" />
     <Compile Include="Datasets.cs" />
     <Compile Include="IReports.cs" />
     <Compile Include="ISerializer.cs" />

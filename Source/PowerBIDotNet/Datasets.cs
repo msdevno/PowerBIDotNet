@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using PowerBIDotNet.Wrappers;
+using PowerBIDotNet.Commands;
 
 namespace PowerBIDotNet
 {
