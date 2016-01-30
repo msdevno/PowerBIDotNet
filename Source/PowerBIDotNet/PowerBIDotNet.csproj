@@ -103,6 +103,9 @@
     <Compile Include="Dashboards.cs" />
     <Compile Include="DatasetCreate.cs" />
     <Compile Include="Datasets.cs" />
+    <Compile Include="IReports.cs" />
+    <Compile Include="Reports.cs" />
+    <Compile Include="Tiles.cs" />
     <Compile Include="Wrappers\DatasetsWrapper.cs" />
     <Compile Include="Groups.cs" />
     <Compile Include="Wrappers\GroupsWrapper.cs" />
@@ -130,6 +133,9 @@
     <Compile Include="Table.cs" />
     <Compile Include="Tables.cs" />
     <Compile Include="TableSchema.cs" />
+    <Compile Include="Wrappers\DashboardsWrapper.cs" />
+    <Compile Include="Wrappers\TilesWrapper.cs" />
+    <Compile Include="Wrappers\ReportsWrapper.cs" />
     <Compile Include="Wrappers\TablesWrapper.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantConfiguration.cs" />

@@ -8,37 +8,40 @@ using PowerBIDotNet.Wrappers;
 namespace PowerBIDotNet
 {
     /// <summary>
-    /// Represents an implementation of <see cref="IDashboards"/>
+    /// Represents an implementation of <see cref="ITiles"/>
     /// </summary>
-    public class Dashboards : IDashboards
+    public class Tiles : ITiles
     {
         Token _token;
         ICommunication _communication;
 
         /// <summary>
-        /// Initializes an instance of <see cref="Dashboards"/>
+        /// Initializes a new instance of <see cref="Tiles"/>
         /// </summary>
         /// <param name="token"><see cref="Token">Access token</see></param>
         /// <param name="communication"><see cref="ICommunication"/> for communicating with Power BI</param>
-        public Dashboards(Token token, ICommunication communication)
+        public Tiles(Token token, ICommunication communication)
         {
             _token = token;
             _communication = communication;
         }
 
+
 #pragma warning disable 1591 // Xml Comments
-        public IEnumerable<Dashboard> GetAll()
+        public IEnumerable<Tile> GetFor(Dashboard dashboard)
         {
             try
             {
-                var dashboards = _communication.Get<DashboardsWrapper>(_token, "dashboards", "beta");
-                return dashboards.Value;
+                var tiles = _communication.Get<TilesWrapper>(_token, $"dashboards/{dashboard.Id}/tiles", "beta");
+                return tiles.Value;
             }
             catch
             {
-                return new Dashboard[0];
+                return new Tile[0];
             }
+
         }
+
 #pragma warning restore 1591 // Xml Comments
     }
 }

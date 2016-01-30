@@ -17,5 +17,15 @@ namespace PowerBIDotNet
         /// Gets or sets the name of the report
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WebUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string EmbedUrl { get; set; }
     }
 }

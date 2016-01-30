@@ -26,7 +26,9 @@
             self.currentTenant({
                 tenant: "[Not Set]",
                 clientId: "[Not Set]",
-                clientSecret: "[Not Set]"
+                clientSecret: "[Not Set]",
+                dataset: "[Not Set]",
+                table: "[Not Set]"
             });
             
         };
@@ -38,6 +40,7 @@
         };
 
         this.authenticate = function () {
+            debugger;
             authenticationHub.server.authenticate(self.currentTenant().tenant, self.currentTenant().client).continueWith(function (url) {
                 document.location = url;
             });

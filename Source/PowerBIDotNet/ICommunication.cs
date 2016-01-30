@@ -17,7 +17,8 @@ namespace PowerBIDotNet
         /// <param name="token"><see cref="Token">Authentication token</see> to use</param>
         /// <param name="action">Action to perform</param>
         /// <param name="message">Message to put</param>
-        void Put<TInput>(Token token, string action, TInput message);
+        /// <param name="version">API Version</param>
+        void Put<TInput>(Token token, string action, TInput message, string version = "v1.0");
 
         /// <summary>
         /// Post a message to a given action with a <see cref="Token"/>
@@ -26,7 +27,8 @@ namespace PowerBIDotNet
         /// <param name="token"><see cref="Token">Authentication token</see> to use</param>
         /// <param name="action">Action to perform</param>
         /// <param name="message">Message to post</param>
-        void Post<TInput>(Token token, string action, TInput message);
+        /// /// <param name="version">API Version</param>
+        void Post<TInput>(Token token, string action, TInput message, string version = "v1.0");
 
         /// <summary>
         /// Post a message to a given action with a <see cref="Token"/> with an expected output from the action
@@ -36,7 +38,8 @@ namespace PowerBIDotNet
         /// <param name="token"><see cref="Token">Authentication token</see> to use</param>
         /// <param name="action">Action to perform</param>
         /// <param name="message">Message to post</param>
-        TOutput Post<TOutput, TInput>(Token token, string action, TInput message);
+        /// <param name="version">API Version</param>
+        TOutput Post<TOutput, TInput>(Token token, string action, TInput message, string version = "v1.0");
 
         /// <summary>
         /// Get from a specific action
@@ -44,6 +47,7 @@ namespace PowerBIDotNet
         /// <typeparam name="T">Type of result expected</typeparam>
         /// <param name="token"><see cref="Token">Authentication token</see> to use</param>
         /// <param name="action">Action to get from</param>
-        T Get<T>(Token token, string action);
+        /// <param name="version">API Version</param>
+        T Get<T>(Token token, string action, string version = "v1.0");
     }
 }

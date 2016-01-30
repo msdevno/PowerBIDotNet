@@ -36,11 +36,16 @@ namespace PowerBIDotNet
         void SetupTable()
         {
             var connectionString = $"DefaultEndpointsProtocol=https;AccountName={_storageConfiguration.AccountName};AccountKey={_storageConfiguration.AccessKey}";
+
             var storageAccount = CloudStorageAccount.Parse(connectionString);
             var tableClient = storageAccount.CreateCloudTableClient();
 
-            _table = tableClient.GetTableReference(TableName);
-            _table.CreateIfNotExists();
+            try
+            {
+                _table = tableClient.GetTableReference(TableName);
+                _table.CreateIfNotExists();
+            }
+            catch { }
         }
 
 #pragma warning disable 1591 // Xml Comments
@@ -82,7 +87,7 @@ namespace PowerBIDotNet
 
         public IEnumerable<TenantConfiguration> GetAll()
         {
-            var all = _table.CreateQuery<DynamicTableEntity>().Select(Map).ToArray();
+            var all = new TenantConfiguration[0]; // _table.CreateQuery<DynamicTableEntity>().Select(Map).ToArray();
             return all;
         }
 #pragma warning restore 1591 // Xml Comments

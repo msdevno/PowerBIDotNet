@@ -33,8 +33,23 @@ namespace PowerBIDotNet
         IDatasets Datasets { get;  }
 
         /// <summary>
+        /// Gets the <see cref="IReports"/> functionality
+        /// </summary>
+        IReports Reports { get; }
+
+        /// <summary>
         /// Gets the <see cref="ITables"/> functionality
         /// </summary>
         ITables Tables { get; }
+
+        /// <summary>
+        /// Gets the <see cref="ITiles"/> functionality
+        /// </summary>
+        ITiles Tiles { get; }
+
+        /// <summary>
+        /// Gets the <see cref="IDashboards"/> functionality
+        /// </summary>
+        IDashboards Dashboards { get; }
     }
 }

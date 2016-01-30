@@ -24,6 +24,8 @@ namespace PowerBIDotNet
             Tables = new Tables(token, communication);
             Rows = new Rows(token, communication);
             Dashboards = new Dashboards(token, communication);
+            Reports = new Reports(token, communication);
+            Tiles = new Tiles(token, communication);
         }
 
 #pragma warning disable 1591 // Xml Comments
@@ -37,7 +39,11 @@ namespace PowerBIDotNet
 
         public IDashboards Dashboards { get; private set; }
 
+        public IReports Reports { get; private set; }
+
         public IImports Imports { get; private set; }
+
+        public ITiles Tiles { get; private set; }
 
 #pragma warning restore 1591 // Xml Comments
 

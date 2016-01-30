@@ -15,33 +15,34 @@ namespace PowerBIDotNet
     public class Communication : ICommunication
     {
         static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-        const string baseUrl = "https://api.powerbi.com/v1.0/myorg/";
 
 #pragma warning disable 1591 // Xml Comments
-        public T Get<T>(Token token, string action)
+        public T Get<T>(Token token, string action, string version="v1.0")
         {
-            var request = CreateRequest(token, action, "GET");
+            var request = CreateRequest(token, action, "GET", version);
             return Get<T>(request);
         }
 
         public void Put<TInput>(
             Token token,
             string action,
-            TInput message)
+            TInput message,
+            string version = "v1.0")
         {
             var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
 
-            var request = CreateRequest(token, action, "PUT");
+            var request = CreateRequest(token, action, "PUT", version);
             Post(request, json);
         }
 
         public void Post<TInput>(
             Token token,
             string action,
-            TInput message)
+            TInput message,
+            string version = "v1.0")
         {
             var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
-            var request = CreateRequest(token, action, "POST");
+            var request = CreateRequest(token, action, "POST", version);
             Post(request, json);
         }
 
@@ -49,7 +50,8 @@ namespace PowerBIDotNet
         public TOutput Post<TOutput, TInput>(
             Token token,
             string action, 
-            TInput message)
+            TInput message, 
+            string version = "v1.0")
         {
             var json = JsonConvert.SerializeObject(message, jsonSerializerSettings);
             var request = CreateRequest(token, action, "POST");
@@ -58,9 +60,9 @@ namespace PowerBIDotNet
         }
 #pragma warning restore 1591 // Xml Comments
 
-        HttpWebRequest CreateRequest(Token token, string action, string method)
+        HttpWebRequest CreateRequest(Token token, string action, string method, string version = "v1.0")
         {
-            var url = $"{baseUrl}{action}";
+            var url = $"https://api.powerbi.com/{version}/myorg/{action}";
             var request = WebRequest.Create(url) as HttpWebRequest;
             request.KeepAlive = true;
             request.Method = method;

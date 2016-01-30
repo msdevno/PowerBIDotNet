@@ -13,8 +13,7 @@ namespace PowerBIDotNet
         /// <summary>
         /// Get all dashboards for a given group
         /// </summary>
-        /// <param name="group"><see cref="Group"/> to get for</param>
-        /// <returns>All <see cref="Dashboard">dashboards</see> for the <see cref="Group"/></returns>
-        IEnumerable<Dashboard> GetFor(Group group);
+        /// <returns>All <see cref="Dashboard">dashboards</see></returns>
+        IEnumerable<Dashboard> GetAll();
     }
 }
