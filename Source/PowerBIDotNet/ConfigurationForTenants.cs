@@ -87,7 +87,7 @@ namespace PowerBIDotNet
 
         public IEnumerable<TenantConfiguration> GetAll()
         {
-            var all = new TenantConfiguration[0]; // _table.CreateQuery<DynamicTableEntity>().Select(Map).ToArray();
+            var all = _table.CreateQuery<DynamicTableEntity>().Select(Map).ToArray();
             return all;
         }
 #pragma warning restore 1591 // Xml Comments
